@@ -7,7 +7,6 @@ import "./src/env.js";
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  swcMinify: true,
 
   output: "standalone", // to reduce the size of the Docker image
 };

@@ -1,3 +1,4 @@
+import { ThemeProvider } from "@/components/layout/theme-provider";
 import "@/styles/globals.css";
 
 import { type Metadata } from "next";
@@ -19,7 +20,16 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" className={`${geist.variable}`}>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
