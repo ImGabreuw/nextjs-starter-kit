@@ -1,0 +1,41 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      # args: # Next.js client-side environment variables
+      #   NEXT_PUBLIC_CLIENTVAR: "clientvar"
+    image: prompt-vault
+    container_name: prompt-vault-app
+    working_dir: /app
+    ports:
+      - "3000:3000"
+    environment: # Automatically load variables from .env file
+      - AUTH_SECRET=${AUTH_SECRET}
+      - AUTH_DISCORD_ID=${AUTH_DISCORD_ID}
+      - AUTH_DISCORD_SECRET=${AUTH_DISCORD_SECRET}
+      - DATABASE_URL=${DATABASE_URL}
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+
+  db:
+    image: postgres:17.4-bookworm
+    container_name: prompt-vault-db
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: prompt-vault
+    ports:
+      - "5432:5432"
+    volumes:
+      - .docker/db:/var/lib/postgresql/data
+    restart: no
+    deploy:
+      resources:
+        limits:
+          cpus: '0.3'
+          memory: 256M
+
