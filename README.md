@@ -63,28 +63,10 @@ nextjs-starter-kit/
 
 ---
 
-## 🚀 Getting Started
+## 📚 Documentation
 
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/seu-usuario/nextjs-starter-kit.git
-   cd nextjs-starter-kit
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Set up environment variables:**
-   - Copy `.env.example` to `.env` and fill in your credentials.
-
-4. **Run the project in development:**
-   ```bash
-   npm run dev
-   ```
-
-5. **Access:** [http://localhost:3000](http://localhost:3000)
+- [Getting Started](docs/getting-started.md) — Detailed quickstart and project setup guide.
+- [Troubleshooting](docs/troubleshooting.md) — Solutions for common issues and development environment tips.
 
 ---
 
